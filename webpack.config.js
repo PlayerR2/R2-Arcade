@@ -3,7 +3,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  watch: false,
   mode: 'development',
   devtool: 'source-map',
   entry: './src/index.js',
@@ -33,6 +32,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
-  ]
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    hot: true,
+    historyApiFallback: true
+  }
 };
