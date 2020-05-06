@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -5,7 +6,7 @@ module.exports = {
   watch: false,
   mode: 'development',
   devtool: 'source-map',
-  entry: './src/app.js',
+  entry: './src/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'public')
