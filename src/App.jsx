@@ -10,7 +10,12 @@ export default function App() {
         <h3 className="user-instruction">👇 choose a game 👇</h3>
       </div>
       <Game />
-      <h3 className="footer">made with ❤️ by PlayerR2</h3>
+      <h3 className="footer">
+        made with ❤️ by{" "}
+        <a href="https://github.com/PlayerR2/duo-cc12" target="_blank">
+          PlayerR2
+        </a>
+      </h3>
     </>
   );
 }

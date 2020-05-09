@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>👾 GAME CENTER</title>
     <link rel="stylesheet" href="./styles/styles.css" />
+    <!-- *WORKING PROGRESS* unity game loader styling -->
+    <link
+      rel="shortcut icon"
+      href="./src/assets/Bally/TemplateData/favicon.ico"
+    />
+    <link rel="stylesheet" href="./src/assets/Bally/TemplateData/style.css" />
+    <!-- *WORKING PROGRESS* unity game loader -->
+    <script src="./src/assets/Bally/TemplateData/UnityProgress.js"></script>
+    <script src="./src/assets/Bally/Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate(
+        "unityContainer",
+        "./assets/Build/Bally.json",
+        { onProgress: UnityProgress }
+      );
+    </script>
   </head>
   <body>
+    <!-- <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px;"></div>
+    </div> -->
     <div id="root"></div>
   </body>
 </html>
