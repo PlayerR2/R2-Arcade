@@ -1,6 +1,7 @@
 import React from "react";
 import Game from "./components/Game";
 import "../src/styles/styles.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
   return (
@@ -10,8 +11,9 @@ export default function App() {
         <h3 className="user-instruction">👇 choose a game 👇</h3>
       </div>
       <Game />
+
       <h3 className="footer">
-        made with ❤️ by{" "}
+        Made with ❤️ by{" "}
         <a href="https://github.com/PlayerR2/duo-cc12" target="_blank">
           PlayerR2
         </a>

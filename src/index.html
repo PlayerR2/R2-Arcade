@@ -4,28 +4,27 @@
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>👾 GAME CENTER</title>
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <!-- *WORKING PROGRESS* unity game loader styling -->
+    <link rel="stylesheet" type="text/html" href="./styles/styles.css" />
     <link
-      rel="shortcut icon"
-      href="./src/assets/Bally/TemplateData/favicon.ico"
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./src/assets/Bally/TemplateData/style.css" />
-    <!-- *WORKING PROGRESS* unity game loader -->
-    <script src="./src/assets/Bally/TemplateData/UnityProgress.js"></script>
-    <script src="./src/assets/Bally/Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate(
-        "unityContainer",
-        "./assets/Build/Bally.json",
-        { onProgress: UnityProgress }
-      );
-    </script>
   </head>
   <body>
-    <!-- <div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px;"></div>
-    </div> -->
     <div id="root"></div>
+    <script
+      src="https://unpkg.com/react/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+      crossorigin
+    ></script>
   </body>
 </html>
