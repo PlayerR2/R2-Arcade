@@ -1,9 +1,11 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import Game from "./components/Game";
 import "../src/styles/styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Unity, { UnityContent } from "react-unity-webgl";
 import Navigation from "./components/Navigation";
+import { auth, generateUserDocument } from "./firebase";
+import { useEffect } from "react";
 
 export default function App() {
   // const unityContent = new UnityContent(
@@ -11,8 +13,22 @@ export default function App() {
   //   "Bally/Build/UnityLoader.js"
   // );
 
+  const [user, setUser] = useState({ user: null });
+  const UserContext = createContext({ user: null });
+
+  useEffect(() => {
+    // listen for auth state change
+    const unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
+      const user = await generateUserDocument(userAuth);
+      setUser({ user });
+    });
+
+    // unsubscribe to listener when unmounting
+    return () => unsubscribe();
+  }, []);
+
   return (
-    <>
+    <UserContext.Provider value={user}>
       {/* <Unity unityContent={unityContent} /> */}
       <Navigation />
       <div className="header">
@@ -27,6 +43,6 @@ export default function App() {
           PlayerR2
         </a>
       </h3>
-    </>
+    </UserContext.Provider>
   );
 }

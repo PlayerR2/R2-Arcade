@@ -1,11 +1,12 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "development",
   devtool: "source-map",
-  entry: "./src/index.js",
+  entry: ["@babel/polyfill", "./src/index.js"],
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "public"),
@@ -37,6 +38,7 @@ module.exports = {
       template: "src/index.html",
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new Dotenv(),
   ],
   devServer: {
     hot: true,

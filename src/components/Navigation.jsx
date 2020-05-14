@@ -1,10 +1,12 @@
-import { Modal, Navbar, Form, Button, Col, Row } from "react-bootstrap";
+import { Navbar, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
+import Login from "./Login";
+import Register from "./Register";
 
 export default function Navigation() {
-  const [modalShow, setModalShow] = React.useState(false);
-  const [modalType, setModalType] = React.useState("👋 Login");
-  const [modalBtn, setModalBtn] = React.useState("🔥 Enter  🔥");
+  // Modal states
+  const [loginShow, setLoginShow] = React.useState(false);
+  const [registerShow, setRegisterShow] = React.useState(false);
 
   return (
     <>
@@ -15,9 +17,7 @@ export default function Navigation() {
             <Button
               variant="outline-primary mr-sm-2"
               onClick={() => {
-                setModalShow(true);
-                setModalType("👋 Login");
-                setModalBtn("🔥 Enter  🔥");
+                setLoginShow(true);
               }}
             >
               Login
@@ -25,9 +25,7 @@ export default function Navigation() {
             <Button
               variant="primary"
               onClick={() => {
-                setModalShow(true);
-                setModalType("🙌 Register");
-                setModalBtn("🔥 Enter  🔥");
+                setRegisterShow(true);
               }}
             >
               Register
@@ -52,47 +50,8 @@ export default function Navigation() {
           </Form>
         </Navbar.Collapse>
       </Navbar>
-
-      <Modal show={modalShow} onHide={() => setModalShow(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>{modalType}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            {modalType === "🙌 Register" && (
-              <Form.Group as={Row} controlId="formGroupUsername">
-                <Form.Label column sm="1">
-                  🎮
-                </Form.Label>
-                <Col sm>
-                  <Form.Control type="username" placeholder="Your username" />
-                </Col>
-              </Form.Group>
-            )}
-            <Form.Group as={Row} controlId="formGroupEmail">
-              <Form.Label column sm="1">
-                ✉️
-              </Form.Label>
-              <Col sm>
-                <Form.Control type="email" placeholder="Your email" />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row} controlId="formGroupPassword">
-              <Form.Label column sm="1">
-                🗝
-              </Form.Label>
-              <Col sm>
-                <Form.Control type="password" placeholder="Your password" />
-              </Col>
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={() => setModalShow(false)} block>
-            {modalBtn}
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <Login loginShow={loginShow} setLoginShow={setLoginShow} />
+      <Register registerShow={registerShow} setRegisterShow={setRegisterShow} />
     </>
   );
 }
