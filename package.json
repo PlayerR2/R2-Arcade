@@ -14,6 +14,9 @@
   "description": "",
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "bootstrap": "^4.4.1",
     "dotenv-webpack": "^1.8.0",
     "express": "^4.17.1",

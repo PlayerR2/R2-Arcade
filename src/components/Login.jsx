@@ -1,6 +1,8 @@
 import { Modal, Col, Row, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
-import { auth } from "../firebase";
+import { auth, signInWithGoogle } from "../firebase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-solid-svg-icons";
 
 export default function Login({ loginShow, setLoginShow }) {
   const [email, setEmail] = useState("");
@@ -71,6 +73,19 @@ export default function Login({ loginShow, setLoginShow }) {
           block
         >
           🔥 Enter 🔥
+        </Button>
+        <Button
+          variant="danger"
+          onClick={() => {
+            try {
+              signInWithGoogle();
+            } catch (error) {
+              console.error("Error logging in with Google", error);
+            }
+          }}
+          block
+        >
+          <FontAwesomeIcon icon={faGoogle} /> Login with Google
         </Button>
       </Modal.Footer>
     </Modal>

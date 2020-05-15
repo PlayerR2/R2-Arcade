@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -16,9 +17,11 @@ const firebaseConfig = {
 // Initialize app
 firebase.initializeApp(firebaseConfig);
 
+export const storage = firebase.storage();
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
+// Google authentication
 const provider = new firebase.auth.GoogleAuthProvider();
 export const signInWithGoogle = () => {
   auth.signInWithPopup(provider);
@@ -28,6 +31,7 @@ export const generateUserDocument = async (user, additionalData) => {
   if (!user) return;
   const userRef = firestore.doc(`users/${user.uid}`);
   const snapshot = await userRef.get();
+
   if (!snapshot.exists) {
     const { email, displayName, photoURL } = user;
     try {

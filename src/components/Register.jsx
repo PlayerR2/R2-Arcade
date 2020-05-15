@@ -1,6 +1,6 @@
 import { Modal, Col, Row, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
-import { auth, generateUserDocument } from "../firebase";
+import { auth, generateUserDocument, signInWithGoogle } from "../firebase";
 
 export default function Register({ registerShow, setRegisterShow }) {
   const [displayName, setDisplayName] = useState("");
@@ -102,6 +102,19 @@ export default function Register({ registerShow, setRegisterShow }) {
           block
         >
           🔥 Enter 🔥
+        </Button>
+        <Button
+          variant="danger"
+          onClick={() => {
+            try {
+              signInWithGoogle();
+            } catch (error) {
+              console.error("Error registering with Google", error);
+            }
+          }}
+          block
+        >
+          🔥 Register with Google 🔥
         </Button>
       </Modal.Footer>
     </Modal>
