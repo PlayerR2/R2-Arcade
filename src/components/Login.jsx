@@ -2,7 +2,7 @@ import { Modal, Col, Row, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { auth, signInWithGoogle } from "../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGoogle } from "@fortawesome/free-solid-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 export default function Login({ loginShow, setLoginShow }) {
   const [email, setEmail] = useState("");
