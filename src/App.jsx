@@ -9,8 +9,8 @@ import UserProvider from "./components/UserProvider";
 export default function App() {
   //
   const unityContentBally = new UnityContent(
-    "bally/Build/Bally.json",
-    "bally/Build/UnityLoader.js"
+    "Bally/Build/Bally.json",
+    "Bally/Build/UnityLoader.js"
   );
 
   const [imageURL, setImageURL] = useState("");
@@ -28,7 +28,7 @@ export default function App() {
       <h3 className="footer">
         Made with ❤️ by{" "}
         <a href="https://github.com/PlayerR2/duo-cc12" target="_blank">
-          PlayerR2
+          PlayerR²
         </a>
       </h3>
     </UserProvider>
