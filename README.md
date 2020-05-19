@@ -18,11 +18,12 @@ yarn install
 ````
 **2.** You'll need to create a `dotenv` file with your private firebase keys 🗝
 ````
-
+yarn add dotenv
+touch .env
 ````
 **3.** Finally, start the server to host locally and experience the magic! 🎩
 ````
-yarn start
+yarn server
 ````
 
-Made with ♥️ by PlayerR2
+Made with  by PlayerR²
