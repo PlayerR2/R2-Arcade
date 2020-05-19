@@ -26,7 +26,7 @@ export default function Navigation({ setImageURL }) {
 
   const uploadFile = (file) => {
     // TODO save files to user specific directory
-    const storageRef = storage.ref("games");
+    const storageRef = storage.ref("users/"+ user.displayName);
     const uploadTask = storageRef.child(file.name).put(file); //<- uploads put()
 
     uploadTask.on(
