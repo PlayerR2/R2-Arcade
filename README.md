@@ -26,4 +26,4 @@ touch .env
 yarn server
 ````
 
-Made with  by PlayerR²
+Made with 💗 by PlayerR²
