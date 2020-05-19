@@ -1,6 +1,9 @@
 import { Modal, Col, Row, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { auth, generateUserDocument, signInWithGoogle } from "../firebase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import swal from "sweetalert";
 
 export default function Register({ registerShow, setRegisterShow }) {
   const [displayName, setDisplayName] = useState("");
@@ -19,6 +22,7 @@ export default function Register({ registerShow, setRegisterShow }) {
         password
       );
       generateUserDocument(user, { displayName });
+      swal("🎉 Welcome onboard!", "Enjoy your time at Game Center", "success");
     } catch (error) {
       setError("Error Signing up with email and password");
     }
@@ -114,7 +118,7 @@ export default function Register({ registerShow, setRegisterShow }) {
           }}
           block
         >
-          🔥 Register with Google 🔥
+          <FontAwesomeIcon icon={faGoogle} /> Register with Google
         </Button>
       </Modal.Footer>
     </Modal>
