@@ -15,7 +15,7 @@ export default function Game({ imageURL }) {
           alt="game"
         />
         <GameScreen show={modalShow} onHide={() => setModalShow(false)} />
-        <h3 className="game-title">Game Title</h3>
+        <h3 className="game-title">Bally</h3>
       </div>
       <div className="game-container">
         <img

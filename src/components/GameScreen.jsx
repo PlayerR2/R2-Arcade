@@ -8,7 +8,7 @@ export default function GameScreen(props) {
   );
 
   return (
-    <Modal {...props} size="lg" centered dialogClassName="modal-90w">
+    <Modal {...props} size="xl" centered dialogClassName="modal-90w">
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           GAME TITLE HERE

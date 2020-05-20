@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import UserProvider from "./components/UserProvider";
 
 export default function App() {
+
   const [imageURL, setImageURL] = useState("");
 
   return (
@@ -16,7 +17,6 @@ export default function App() {
         <h3 className="user-instruction">👇 choose a game 👇</h3>
       </div>
       <Game imageURL={imageURL} />
-
       <h3 className="footer">
         Made with ❤️ by{" "}
         <a href="https://github.com/PlayerR2/duo-cc12" target="_blank">

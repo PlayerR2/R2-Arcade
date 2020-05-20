@@ -9,6 +9,9 @@ export default function Register({ registerShow, setRegisterShow }) {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
 
@@ -35,6 +38,9 @@ export default function Register({ registerShow, setRegisterShow }) {
     setEmail("");
     setPassword("");
     setDisplayName("");
+    setFirstName("");
+    setLastName("");
+    setPhoneNumber("");
   };
 
   const onChangeHandler = (event) => {
@@ -46,6 +52,12 @@ export default function Register({ registerShow, setRegisterShow }) {
       setPassword(value);
     } else if (name === "displayName") {
       setDisplayName(value);
+    } else if (name === "firstName") {
+      setFirstName(value);
+    } else if (name === "lastName") {
+      setLastName(value);
+    }else if (name === "phoneNumber") {
+      setPhoneNumber(value);
     }
   };
 
@@ -106,20 +118,57 @@ export default function Register({ registerShow, setRegisterShow }) {
               />
             </Col>
           </Form.Group>
+          <Form.Group as={Row} controlId="formGroupFirstName">
+            <Form.Label column sm="1">
+              📝
+            </Form.Label>
+            <Col sm>
+              <Form.Control
+                type="firstName"
+                name="firstName"
+                value={firstName}
+                placeholder="Your first name"
+                onChange={(event) => onChangeHandler(event)}
+              />
+            </Col>
+            <Col sm>
+              <Form.Control
+                type="lastName"
+                name="lastName"
+                value={lastName}
+                placeholder="Your last name"
+                onChange={(event) => onChangeHandler(event)}
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} controlId="formGroupPhoneNumber">
+            <Form.Label column sm="1">
+              📞
+            </Form.Label>
+            <Col sm>
+              <Form.Control
+                type="phoneNumber"
+                name="phoneNumber"
+                value={phoneNumber}
+                placeholder="Your contact number"
+                onChange={(event) => onChangeHandler(event)}
+              />
+            </Col>
+          </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button
-          variant="primary"
+          variant="danger"
           onClick={(event) => {
             createUserWithEmailAndPasswordHandler(event, email, password);
           }}
           block
         >
-          🔥 Enter 🔥
+          💾 Register 💾
         </Button>
         <Button
-          variant="danger"
+          variant="primary"
           onClick={() => {
             try {
               signInWithGoogle();
@@ -130,7 +179,7 @@ export default function Register({ registerShow, setRegisterShow }) {
           }}
           block
         >
-          <FontAwesomeIcon icon={faGoogle} /> Register with Google
+          <FontAwesomeIcon icon={faGoogle} /> 🏃🏻‍♂️ Register with Google 🏃🏻‍♂️
         </Button>
       </Modal.Footer>
     </Modal>
