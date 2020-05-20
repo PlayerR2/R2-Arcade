@@ -4,6 +4,7 @@ import Login from "./Login";
 import Register from "./Register";
 import { UserContext } from "./UserProvider";
 import { auth, storage } from "../firebase";
+import swal from "sweetalert";
 
 export default function Navigation({ setImageURL }) {
   // Modal states
@@ -72,6 +73,12 @@ export default function Navigation({ setImageURL }) {
                 variant="outline-primary mr-sm-2"
                 onClick={() => {
                   auth.signOut();
+                  swal({
+                    title: "👋 See you soon!",
+                    text: "Hope you had a blast",
+                    icon: "success",
+                    button: "👋Goodbye",
+                  });
                 }}
               >
                 Logout

@@ -6,8 +6,7 @@ import Navigation from "./components/Navigation";
 import UserProvider from "./components/UserProvider";
 
 export default function App() {
-  //
-  
+
   const [imageURL, setImageURL] = useState("");
 
   return (

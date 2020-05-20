@@ -27,7 +27,8 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
-    "react-unity-webgl": "^7.1.10"
+    "react-unity-webgl": "^7.1.10",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

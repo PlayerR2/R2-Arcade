@@ -1,6 +1,9 @@
-import { Modal, Col, Row, Form, Button } from "react-bootstrap";
+import { Modal, Col, Row, Form, Button, Alert } from "react-bootstrap";
 import React, { useState } from "react";
 import { auth, generateUserDocument, signInWithGoogle } from "../firebase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import swal from "sweetalert";
 
 export default function Register({ registerShow, setRegisterShow }) {
   const [displayName, setDisplayName] = useState("");
@@ -10,6 +13,8 @@ export default function Register({ registerShow, setRegisterShow }) {
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState(null);
+  const [showError, setShowError] = useState(false);
+
   const createUserWithEmailAndPasswordHandler = async (
     event,
     email,
@@ -21,14 +26,12 @@ export default function Register({ registerShow, setRegisterShow }) {
         email,
         password
       );
-      generateUserDocument(
-        user,
-        { displayName },
-        firstName,
-        lastName,
-        phoneNumber);
+      generateUserDocument(user, { displayName });
+      setRegisterShow(false);
+      swal("🎉 Welcome onboard!", "Enjoy your time at Game Center", "success");
     } catch (error) {
-      setError("Error Signing up with email and password");
+      setError("Error Signing up with email and password!");
+      setShowError(true);
     }
 
     // Reset states
@@ -64,6 +67,14 @@ export default function Register({ registerShow, setRegisterShow }) {
         <Modal.Title>🙌 Register</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <Alert
+          show={showError}
+          variant="danger"
+          onClose={() => setShowError(false)}
+          dismissible
+        >
+          <p>{error}</p>
+        </Alert>
         <Form>
           <Form.Group as={Row} controlId="formGroupDisplayName">
             <Form.Label column sm="1">
@@ -151,7 +162,6 @@ export default function Register({ registerShow, setRegisterShow }) {
           variant="danger"
           onClick={(event) => {
             createUserWithEmailAndPasswordHandler(event, email, password);
-            setRegisterShow(false);
           }}
           block
         >
@@ -163,12 +173,13 @@ export default function Register({ registerShow, setRegisterShow }) {
             try {
               signInWithGoogle();
             } catch (error) {
-              console.error("Error registering with Google", error);
+              setError("Error registering with Google");
+              setShowError(true);
             }
           }}
           block
         >
-          🏃🏻‍♂️ Register with Google 🏃🏻‍♂️
+          <FontAwesomeIcon icon={faGoogle} /> 🏃🏻‍♂️ Register with Google 🏃🏻‍♂️
         </Button>
       </Modal.Footer>
     </Modal>
