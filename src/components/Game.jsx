@@ -24,7 +24,7 @@ export default function Game({ imageURL }) {
           src="https://art.pixilart.com/4b680819d6447f3.gif"
           alt="game"
         />
-        <GameScreen show={modalShow} onHide={() => setModalShow(false)} />
+        {/* <GameScreen show={modalShow} onHide={() => setModalShow(false)} /> */}
         <h3 className="game-title">Game Title</h3>
       </div>
       <div className="game-container">
@@ -34,7 +34,7 @@ export default function Game({ imageURL }) {
           src="https://art.pixilart.com/4b680819d6447f3.gif"
           alt="game"
         />
-        <GameScreen show={modalShow} onHide={() => setModalShow(false)} />
+        {/* <GameScreen show={modalShow} onHide={() => setModalShow(false)} /> */}
         <h3 className="game-title">Game Title</h3>
       </div>
       <div className="game-container">
@@ -44,7 +44,7 @@ export default function Game({ imageURL }) {
           src="https://art.pixilart.com/4b680819d6447f3.gif"
           alt="game"
         />
-        <GameScreen show={modalShow} onHide={() => setModalShow(false)} />
+        {/* <GameScreen show={modalShow} onHide={() => setModalShow(false)} /> */}
         <h3 className="game-title">Game Title</h3>
       </div>
     </div>
