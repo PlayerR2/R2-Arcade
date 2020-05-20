@@ -3,8 +3,8 @@ import Unity, { UnityContent } from "react-unity-webgl";
 
 export default function GameScreen(props) {
   const unityContentBally = new UnityContent(
-    "eatNgrow/Build/build.json",
-    "eatNgrow/Build/UnityLoader.js"
+    "original/Build/original.json",
+    "original/Build/UnityLoader.js"
   );
 
   return (
