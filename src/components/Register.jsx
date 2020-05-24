@@ -159,7 +159,7 @@ export default function Register({ registerShow, setRegisterShow }) {
       </Modal.Body>
       <Modal.Footer>
         <Button
-          variant="danger"
+          variant="primary"
           onClick={(event) => {
             createUserWithEmailAndPasswordHandler(event, email, password);
           }}
@@ -168,7 +168,7 @@ export default function Register({ registerShow, setRegisterShow }) {
           💾 Register 💾
         </Button>
         <Button
-          variant="primary"
+          variant="danger"
           onClick={() => {
             try {
               signInWithGoogle();

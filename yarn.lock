@@ -6240,6 +6240,11 @@ nopt@~1.0.10:
   dependencies:
     abbrev "1"
 
+nord@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/nord/-/nord-0.2.1.tgz#044ed8e00331c84a96dc4c670f080a72572c3cf9"
+  integrity sha1-BE7Y4AMxyEqW3ExnDwgKclcsPPk=
+
 normalize-path@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
