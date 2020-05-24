@@ -5,8 +5,8 @@ import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function GameScreen() {
   const unityContentBally = new UnityContent(
-    "original/Build/original.json",
-    "original/Build/UnityLoader.js"
+    `Bally/Build/Bally.json`,
+    `Bally/Build/UnityLoader.js`
   );
 
   return (

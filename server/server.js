@@ -12,4 +12,8 @@ server.use(webpackDevMiddleware(compiler, {
 
 server.use('/', express.static('./public', {index: "index.html"}))
 
-server.listen(port, () => console.log(`Server started, listening on port ${port}!`))
+server.listen(port, () => {
+  console.log(`█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█`)
+  console.log(`█       \x1b[36mExpress Server is listening on port\x1b[0m ${port}        █`)
+  console.log(`█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█`)
+})
