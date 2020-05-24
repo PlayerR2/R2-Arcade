@@ -56,7 +56,7 @@ export default function Register({ registerShow, setRegisterShow }) {
       setFirstName(value);
     } else if (name === "lastName") {
       setLastName(value);
-    }else if (name === "phoneNumber") {
+    } else if (name === "phoneNumber") {
       setPhoneNumber(value);
     }
   };
@@ -179,7 +179,8 @@ export default function Register({ registerShow, setRegisterShow }) {
           }}
           block
         >
-          <FontAwesomeIcon icon={faGoogle} /> 🏃🏻‍♂️ Register with Google 🏃🏻‍♂️
+          <FontAwesomeIcon icon={faGoogle} />
+          Register with Google
         </Button>
       </Modal.Footer>
     </Modal>
