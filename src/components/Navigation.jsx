@@ -1,5 +1,6 @@
 import { Navbar, Form, Button } from "react-bootstrap";
 import React, { useState, useContext, createRef } from "react";
+import { Link } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import { UserContext } from "./UserProvider";
@@ -50,14 +51,18 @@ export default function Navigation({ setImageURL }) {
   };
 
   return (
-    <Navbar bg="light" variant="light">
+    <Navbar className="navbar">
       {user ? (
         <>
-          <Navbar.Brand href="#home">🎮 {user.displayName}</Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/" className="navbar-brand">
+              🎮 {user.displayName}
+            </Link>
+          </Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">
             <Form inline>
               <Button
-                variant="outline-primary mr-sm-2"
+                variant="outline-light mr-sm-2"
                 onClick={() => {
                   auth.signOut();
                   swal({
@@ -91,11 +96,15 @@ export default function Navigation({ setImageURL }) {
         </>
       ) : (
         <>
-          <Navbar.Brand href="#home">👾 Game Center</Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/" className="navbar-brand">
+              GAME CENTER
+            </Link>
+          </Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">
             <Form inline>
               <Button
-                variant="outline-primary mr-sm-2"
+                variant="outline-light mr-sm-2"
                 onClick={() => {
                   setLoginShow(true);
                 }}
