@@ -27,7 +27,7 @@ export default function Navigation({ setImageURL }) {
 
   const uploadFile = (file) => {
     // TODO save files to user specific directory
-    const storageRef = storage.ref("users/"+ user.displayName);
+    const storageRef = storage.ref("users/" + user.displayName);
     const uploadTask = storageRef.child(file.name).put(file); //<- uploads put()
 
     uploadTask.on(
@@ -47,19 +47,6 @@ export default function Navigation({ setImageURL }) {
           });
       }
     );
-
-    // TEST: listing all files in "games" dir
-    // storageRef
-    //   .listAll()
-    //   .then((res) => {
-    //     res.prefixes.forEach((folderRef) => {
-    //       console.log("folderRef -->", folderRef);
-    //     });
-    //     res.items.forEach((itemRef) => {
-    //       console.log("itemRef -->", itemRef);
-    //     });
-    //   })
-    //   .catch((error) => console.log("ERROR -->", error));
   };
 
   return (

@@ -1,25 +1,27 @@
-import { Modal, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Unity, { UnityContent } from "react-unity-webgl";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
-export default function GameScreen(props) {
+export default function GameScreen() {
   const unityContentBally = new UnityContent(
     "original/Build/original.json",
     "original/Build/UnityLoader.js"
   );
 
   return (
-    <Modal {...props} size="xl" centered dialogClassName="modal-90w">
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          GAME TITLE HERE
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Unity unityContent={unityContentBally} />
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
+    <>
+      <div className="gamescreen-header">
+        <div className="return">
+          <Link to="/">
+            <FontAwesomeIcon className="return-btn" icon={faArrowCircleLeft} />
+            return
+          </Link>
+        </div>
+        <h3 className="gamescreen-title">Game Title Goes Here</h3>
+        <div className="void"></div>
+      </div>
+      <Unity unityContent={unityContentBally} />
+    </>
   );
 }

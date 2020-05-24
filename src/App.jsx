@@ -1,28 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Game from "./components/Game";
 import "../src/styles/styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation";
 import UserProvider from "./components/UserProvider";
+import GameScreen from "./components/GameScreen";
 
 export default function App() {
-
-  const [imageURL, setImageURL] = useState("");
-
   return (
-    <UserProvider>
-      <Navigation setImageURL={setImageURL} />
-      <div className="header">
-        <h1 className="title">GAME CENTER</h1>
-        <h3 className="user-instruction">👇 choose a game 👇</h3>
-      </div>
-      <Game imageURL={imageURL} />
-      <h3 className="footer">
-        Made with ❤️ by{" "}
-        <a href="https://github.com/PlayerR2/duo-cc12" target="_blank">
-          PlayerR²
-        </a>
-      </h3>
-    </UserProvider>
+    <Router>
+      <UserProvider>
+        <Navigation />
+        <div className="header">
+          <h1 className="title">GAME CENTER</h1>
+        </div>
+        <Route exact path="/" component={Game} />
+        <Route path="/game" component={GameScreen} />
+        <h3 className="footer">
+          Made with ❤️ by{" "}
+          <a href="https://github.com/PlayerR2/duo-cc12" target="_blank">
+            PlayerR²
+          </a>
+        </h3>
+      </UserProvider>
+    </Router>
   );
 }
