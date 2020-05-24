@@ -1,20 +1,20 @@
-import React from "react";
 import "../styles/styles.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Game() {
+
   return (
     <>
       <h3 className="page-title">
         <FontAwesomeIcon icon={faCaretDown} className="caret-down-left" />
-        choose a game
+        choose a game {1+2}
         <FontAwesomeIcon icon={faCaretDown} className="caret-down-right" />
       </h3>
       <div className="game-wrapper">
         <div className="game-container">
-          <Link to="/game">
+          <Link to={{pathname:"/game", query: "bally"}}>
             <div className="hvrbox">
               <img
                 className="hvrbox-layer_bottom"

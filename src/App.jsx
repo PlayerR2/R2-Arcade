@@ -16,7 +16,7 @@ export default function App() {
           <h1 className="title">GAME CENTER</h1>
         </div>
         <Route exact path="/" component={Game} />
-        <Route path="/game" component={GameScreen} />
+        <Route path="/game" render={({props})=> <GameScreen props={{...props}, "eatNgrow"}/>} />
         <h3 className="footer">
           Made with ❤️ by{" "}
           <a href="https://github.com/PlayerR2/duo-cc12" target="_blank">
