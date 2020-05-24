@@ -1,45 +1,73 @@
 import React from "react";
 import "../styles/styles.css";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Game() {
   return (
     <>
-      <h3 className="page-title">👇 choose a game 👇</h3>
+      <h3 className="page-title">
+        <FontAwesomeIcon icon={faCaretDown} className="caret-down-left" />
+        choose a game
+        <FontAwesomeIcon icon={faCaretDown} className="caret-down-right" />
+      </h3>
       <div className="game-wrapper">
         <div className="game-container">
           <Link to="/game">
-            <img
-              className="game-img"
-              src="https://art.pixilart.com/4b680819d6447f3.gif"
-              alt="game"
-            />
+            <div className="hvrbox">
+              <img
+                className="hvrbox-layer_bottom"
+                src="https://art.pixilart.com/4b680819d6447f3.gif"
+                alt="game"
+              />
+              <div className="hvrbox-layer_top">
+                <div className="hvrbox-text">Game Title Goes Here</div>
+              </div>
+            </div>
           </Link>
-          <h3 className="game-title">Bally</h3>
         </div>
         <div className="game-container">
-          <img
-            className="game-img"
-            src="https://art.pixilart.com/4b680819d6447f3.gif"
-            alt="game"
-          />
-          <h3 className="game-title">Game Title</h3>
+          <Link to="/game">
+            <div className="hvrbox">
+              <img
+                className="hvrbox-layer_bottom"
+                src="https://art.pixilart.com/4b680819d6447f3.gif"
+                alt="game"
+              />
+              <div className="hvrbox-layer_top">
+                <div className="hvrbox-text">Game Title Goes Here</div>
+              </div>
+            </div>
+          </Link>
         </div>
         <div className="game-container">
-          <img
-            className="game-img"
-            src="https://art.pixilart.com/4b680819d6447f3.gif"
-            alt="game"
-          />
-          <h3 className="game-title">Game Title</h3>
+          <Link to="/game">
+            <div className="hvrbox">
+              <img
+                className="hvrbox-layer_bottom"
+                src="https://art.pixilart.com/4b680819d6447f3.gif"
+                alt="game"
+              />
+              <div className="hvrbox-layer_top">
+                <div className="hvrbox-text">Game Title Goes Here</div>
+              </div>
+            </div>
+          </Link>
         </div>
         <div className="game-container">
-          <img
-            className="game-img"
-            src="https://art.pixilart.com/4b680819d6447f3.gif"
-            alt="game"
-          />
-          <h3 className="game-title">Game Title</h3>
+          <Link to="/game">
+            <div className="hvrbox">
+              <img
+                className="hvrbox-layer_bottom"
+                src="https://art.pixilart.com/4b680819d6447f3.gif"
+                alt="game"
+              />
+              <div className="hvrbox-layer_top">
+                <div className="hvrbox-text">Game Title Goes Here</div>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
     </>
