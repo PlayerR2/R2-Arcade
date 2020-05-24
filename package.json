@@ -6,6 +6,7 @@
     "start": "nodemon ./src/index.js",
     "server": "nodemon ./server/server.js",
     "build": "webpack --config ./webpack.config.js --mode production",
+    "analyze": "source-map-explorer 'public/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -45,6 +46,7 @@
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.10.3"

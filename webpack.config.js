@@ -5,13 +5,14 @@ const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "development",
-  devtool: "inline-source-map",
   entry: ["@babel/polyfill", "./src/index.js"],
   output: {
-    filename: "main.js",
     path: path.resolve(__dirname, "public"),
+    filename: "main.js",
     publicPath: "/",
+    sourceMapFilename: "[name].js.map",
   },
+  devtool: "eval-source-map",
   module: {
     rules: [
       {
