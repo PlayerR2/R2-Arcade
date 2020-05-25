@@ -5,11 +5,6 @@ import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function GameScreen(props) {
 
-  console.log("gameName -->", props.location.gameName)
-  console.log("gameName.name -->", props.location.gameName.name)
-
-  //const game = match.params.gameName;
-
   const unity = new UnityContent(
     `${props.location.gameName.name}/Build/${props.location.gameName.name}.json`,
     `${props.location.gameName.name}/Build/UnityLoader.js`
