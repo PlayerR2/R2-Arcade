@@ -1,4 +1,4 @@
-import { Navbar, Form, Button } from "react-bootstrap";
+import { Navbar, Form, Button, ProgressBar } from "react-bootstrap";
 import React, { useState, useContext, createRef } from "react";
 import { Link } from "react-router-dom";
 import Login from "./Login";
@@ -11,6 +11,7 @@ export default function Navigation({ setImageURL }) {
   // Modal states
   const [loginShow, setLoginShow] = useState(false);
   const [registerShow, setRegisterShow] = useState(false);
+  const [progressNow, setProgress] = useState(0);
 
   const { user } = useContext(UserContext);
 
@@ -27,13 +28,13 @@ export default function Navigation({ setImageURL }) {
   };
 
   const uploadFile = (file) => {
-    // TODO save files to user specific directory
     const storageRef = storage.ref("users/" + user.displayName);
     const uploadTask = storageRef.child(file.name).put(file); //<- uploads put()
 
     uploadTask.on(
       "state_changed",
       (snapshot) => {
+        setProgress(100.0 * (snapshot.bytesTransferred) / snapshot.totalBytes);
         console.log("SNAPSHOT -->", snapshot);
       },
       (err) => {
@@ -60,6 +61,10 @@ export default function Navigation({ setImageURL }) {
             </Link>
           </Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">
+          <ProgressBar animated min={0} max={100} width={100}
+            now={progressNow}
+            label={`${progressNow}%`}
+          />
             <Form inline>
               <Button
                 variant="outline-light mr-sm-2"
