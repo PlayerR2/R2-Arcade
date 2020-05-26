@@ -1,5 +1,6 @@
 import { Modal, Col, Row, Form, Button, Alert } from "react-bootstrap";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { auth, generateUserDocument, signInWithGoogle } from "../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
@@ -15,6 +16,8 @@ export default function Register({ registerShow, setRegisterShow }) {
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
 
+  const history = useHistory();
+
   const createUserWithEmailAndPasswordHandler = async (
     event,
     email,
@@ -29,6 +32,7 @@ export default function Register({ registerShow, setRegisterShow }) {
       generateUserDocument(user, { displayName });
       setRegisterShow(false);
       swal("🎉 Welcome onboard!", "Enjoy your time at Game Center", "success");
+      history.push("/dashboard");
     } catch (error) {
       setError("Error Signing up with email and password!");
       setShowError(true);
@@ -179,8 +183,7 @@ export default function Register({ registerShow, setRegisterShow }) {
           }}
           block
         >
-          <FontAwesomeIcon icon={faGoogle} />
-          Register with Google
+          <FontAwesomeIcon icon={faGoogle} /> Register with Google
         </Button>
       </Modal.Footer>
     </Modal>

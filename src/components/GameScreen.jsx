@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function GameScreen(props) {
-
   const unity = new UnityContent(
     `${props.location.gameName.name}/Build/${props.location.gameName.name}.json`,
     `${props.location.gameName.name}/Build/UnityLoader.js`
@@ -12,6 +11,9 @@ export default function GameScreen(props) {
 
   return (
     <>
+      <div className="header">
+        <h1 className="title">{props.location.gameName.name}</h1>
+      </div>
       <div className="gamescreen-header">
         <div className="return">
           <Link to="/">
@@ -19,7 +21,7 @@ export default function GameScreen(props) {
             return
           </Link>
         </div>
-        <h3 className="gamescreen-title">Game Title Goes Here</h3>
+        <h3 className="gamescreen-title">Made with ♥️　by USER</h3>
         <div className="void"></div>
       </div>
       <Unity unityContent={unity} />

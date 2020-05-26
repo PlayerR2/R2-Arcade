@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Game() {
-
   return (
     <>
+      <div className="header">
+        <h1 className="title">R²♠rcade</h1>
+      </div>
       <h3 className="page-title">
         <FontAwesomeIcon icon={faCaretDown} className="caret-down-left" />
         choose a game
@@ -14,7 +16,7 @@ export default function Game() {
       </h3>
       <div className="game-wrapper">
         <div className="game-container">
-          <Link to={{ pathname: "/game", gameName: { name: "Bally" }}}>
+          <Link to={{ pathname: "/game", gameName: { name: "Bally" } }}>
             <div className="hvrbox">
               <img
                 className="hvrbox-layer_bottom"
@@ -28,7 +30,7 @@ export default function Game() {
           </Link>
         </div>
         <div className="game-container">
-        <Link to={{ pathname: "/game", gameName: { name: "eatNgrow" }}}>
+          <Link to={{ pathname: "/game", gameName: { name: "eatNgrow" } }}>
             <div className="hvrbox">
               <img
                 className="hvrbox-layer_bottom"
@@ -42,7 +44,7 @@ export default function Game() {
           </Link>
         </div>
         <div className="game-container">
-        <Link to={{ pathname: "/game", gameName: { name: "" }}}>
+          <Link to={{ pathname: "/game", gameName: { name: "" } }}>
             <div className="hvrbox">
               <img
                 className="hvrbox-layer_bottom"
@@ -56,7 +58,7 @@ export default function Game() {
           </Link>
         </div>
         <div className="game-container">
-        <Link to={{ pathname: "/game", gameName: { name: "" }}}>
+          <Link to={{ pathname: "/game", gameName: { name: "" } }}>
             <div className="hvrbox">
               <img
                 className="hvrbox-layer_bottom"
