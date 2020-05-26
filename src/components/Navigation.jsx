@@ -1,3 +1,4 @@
+
 import { Navbar, Form, Button } from "react-bootstrap";
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
@@ -11,6 +12,7 @@ export default function Navigation() {
   // Modal states
   const [loginShow, setLoginShow] = useState(false);
   const [registerShow, setRegisterShow] = useState(false);
+  const [progressNow, setProgress] = useState(0);
 
   const { user } = useContext(UserContext);
 
