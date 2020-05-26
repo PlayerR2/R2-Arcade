@@ -1,5 +1,6 @@
 import { Modal, Col, Row, Form, Button, Alert } from "react-bootstrap";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { auth, signInWithGoogle } from "../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
@@ -11,12 +12,15 @@ export default function Login({ loginShow, setLoginShow }) {
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
 
+  const history = useHistory();
+
   const signInWithEmailAndPasswordHandler = async (event, email, password) => {
     event.preventDefault();
     try {
       await auth.signInWithEmailAndPassword(email, password);
       setLoginShow(false);
       swal("🚀 Welcome back!", "Enjoy your time at Game Center", "success");
+      history.push("/dashboard");
     } catch (error) {
       setError("Error signing in with password and email!");
       setShowError(true);

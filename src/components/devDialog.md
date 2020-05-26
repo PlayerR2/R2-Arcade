@@ -35,16 +35,16 @@ gnomes will approve your game for all to see and play.
 
 *Criteria for game approval is as follows:
  - No adult games (no nudity/sexual explicity/torture)
- - Must not contain any virusses (viraii?) or hacks
- - No hate or discriminitory content
- - *Basically no bad stuff, this is a place to show off your work
+ - Must not contain any viruses (viraii?) or hacks
+ - No hate or discriminatory content
+ Keep in mind, this is a place to share your game to the world!
 
 Please also upload a screen shot to use for the frontpage (if not we'll take our
 own screenshot that may or may not be flattering 😁)
 
 Be sure to keep your Contact info up to date in case any potential clients/fans
 wish to contact you (unless you would NOT like your info published feel free to
-check that option on your developes landing page)
+check that option on your developers landing page)
 
 Finally tell all your gamer/developer/co-workes/bosses to check R²💗Arcade to
 see your game in action!
