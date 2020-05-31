@@ -202,3 +202,8 @@ img {
   flex-grow: 1;
   width: 400px;
 }
+
+.gamescreen-container {
+  width: 100%;
+  height: 500px;
+}
