@@ -12,14 +12,27 @@ export default function Navigation() {
   // Modal states
   const [loginShow, setLoginShow] = useState(false);
   const [registerShow, setRegisterShow] = useState(false);
-  const [progressNow, setProgress] = useState(0);
 
   const { user } = useContext(UserContext);
 
-  if (user != null) {
+  // var listRef = storage.storageRef.child('files/uid')
+  // listRef.listAll().then(function(res) {
+  //   res.prefixes.forEach(function(folderRef) {
+  //     // All the prefixes under listRef.
+  //     // You may call listAll() recursively on them.
+  //     console.log("folderref---------->", folderRef);
+  //   });
+  //   res.items.forEach(function(itemRef) {
+  //     console.log("itemref----->", itemRef)
+  //     // All the items under listRef.
+  //   });
+  // }).catch(function(error) {
+  //   // Uh-oh, an error occurred!
+  // });
+  
     return (
       <Navbar className="navbar">
-        {user !== null ? (
+        {user ? (
           <>
             <Navbar.Brand>
               <Link to="/" className="navbar-brand">
@@ -84,7 +97,4 @@ export default function Navigation() {
         />
       </Navbar>
     );
-  } else {
-    return <h1>Loading ...</h1>;
-  }
 }
