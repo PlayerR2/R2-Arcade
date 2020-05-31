@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { UserContext } from "./UserProvider";
 import Upload from "./Upload";
 
 export default function Dashboard() {
   const [show, setShow] = useState(false);
+  const { user } = useContext(UserContext);
+
+
+  console.log("userProp1========>", user)
+
 
   const onClickHandler = () => {
     setShow(true);
@@ -38,7 +44,7 @@ export default function Dashboard() {
           Host my game!
         </Button>
       </div>
-      <Upload show={show} setShow={setShow} />
+      <Upload show={show} setShow={setShow} user={user}/>
     </>
   );
 }

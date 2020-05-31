@@ -1,49 +1,37 @@
 import { Modal, Button, Alert } from "react-bootstrap";
 import React, { useState, createRef } from "react";
-import { storage } from "../firebase";
+import { storage, firestore } from "../firebase";
+
 // import swal from "sweetalert";
 
-export default function Upload({ show, setShow }) {
+export default function Upload({ show, setShow, user }) {
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
+  
+  console.log("userProp2========>", user);
 
   const userRef = storage.ref("users/" + user.displayName);
-  const fileRef = userRef.child(file.name);
-
+  const gamesDb = firestore.collection("games").doc();
+  
   const inputEl = createRef();
   const onClickHandler = () => {
     inputEl.current.click();
   };
-
+  
   const onChangeHandler = (event) => {
-      console.log(event.target.files[0]);
-      let file = event.target.files[0];
-      (fileRef).put(file);
+    console.log(event.target.files[0]);
+    const file = event.target.files[0];
+    const fileRef = userRef.child(file.name);
+    (fileRef).put(file).then(() => {
+      console.log('Uploaded a blob or file!', fileRef.fullPath)
+      gamesDb.set({
+        creator: user.displayName,
+        creatorId: user.uid,
+        gameName: fileRef.name,
+        zipLocation: fileRef.fullPath
+      });
+    });
   };
-
-    // const uploadFile = (file) => {
-    //   // TODO save files to user specific directory
-    //   const storageRef = storage.ref("users/" + user.displayName);
-    //   const uploadTask = storageRef.child(file.name).put(file); //<- uploads put()
-
-    //   uploadTask.on(
-    //     "state_changed",
-    //     (snapshot) => {
-    //       console.log("SNAPSHOT -->", snapshot);
-    //     },
-    //     (err) => {
-    //       console.log("ERROR -->", err);
-    //     },
-    //     () => {
-    //       storageRef
-    //         .child(file.name)
-    //         .getDownloadURL()
-    //         .then((fireBaseURL) => {
-    //           setImageURL(fireBaseURL);
-    //         });
-    //     }
-    //   );
-    // };
 
   return (
     <Modal size="xl" show={show} onHide={() => setShow(false)}>

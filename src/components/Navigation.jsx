@@ -10,12 +10,11 @@ import PasswordReset from "./PasswordReset";
 
 export default function Navigation() {
   // Modal states
+  const { user } = useContext(UserContext);
+
   const [loginShow, setLoginShow] = useState(false);
   const [registerShow, setRegisterShow] = useState(false);
-
   const [passwordResetShow, setPasswordResetShow] = useState(false);
-
-  const { user } = useContext(UserContext);
 
   return (
     <Navbar className="navbar">
@@ -42,7 +41,7 @@ export default function Navigation() {
               >
                 Logout
               </Button>
-              <Link to="/dashboard">
+              <Link to="/dashboard" >
                 <Button variant="light">Dashboard</Button>
               </Link>
             </Form>

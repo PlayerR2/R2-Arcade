@@ -34,7 +34,7 @@ export default function Game() {
             <div className="hvrbox">
               <img
                 className="hvrbox-layer_bottom"
-                src="https://art.pixilart.com/4b680819d6447f3.gif"
+                src="/eatNgrow/eatNgrow.png"
                 alt="game"
               />
               <div className="hvrbox-layer_top">

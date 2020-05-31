@@ -10,6 +10,11 @@ export default function GameScreen(props) {
     `${props.location.gameName.name}/Build/UnityLoader.js`
   );
 
+  // const unity2 = new UnityContent(
+  //   `eatNgrow/Build/eatNgrow.json`,
+  //   `eatNgrow/Build/UnityLoader.js`
+  // );
+
   return (
     <>
       <div className="header">
