@@ -31,7 +31,7 @@ export default function Register({ registerShow, setRegisterShow }) {
       );
       generateUserDocument(user, { displayName });
       setRegisterShow(false);
-      swal("🎉 Welcome onboard!", "Enjoy your time at Game Center", "success");
+      swal("🎉 Welcome onboard!", "Enjoy your time at R²♠rcade", "success");
       history.push("/dashboard");
     } catch (error) {
       setError("Error Signing up with email and password!");
@@ -122,43 +122,6 @@ export default function Register({ registerShow, setRegisterShow }) {
               />
             </Col>
           </Form.Group>
-          <Form.Group as={Row} controlId="formGroupFirstName">
-            <Form.Label column sm="1">
-              📝
-            </Form.Label>
-            <Col sm>
-              <Form.Control
-                type="firstName"
-                name="firstName"
-                value={firstName}
-                placeholder="Your first name"
-                onChange={(event) => onChangeHandler(event)}
-              />
-            </Col>
-            <Col sm>
-              <Form.Control
-                type="lastName"
-                name="lastName"
-                value={lastName}
-                placeholder="Your last name"
-                onChange={(event) => onChangeHandler(event)}
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId="formGroupPhoneNumber">
-            <Form.Label column sm="1">
-              📞
-            </Form.Label>
-            <Col sm>
-              <Form.Control
-                type="phoneNumber"
-                name="phoneNumber"
-                value={phoneNumber}
-                placeholder="Your contact number"
-                onChange={(event) => onChangeHandler(event)}
-              />
-            </Col>
-          </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
@@ -176,6 +139,13 @@ export default function Register({ registerShow, setRegisterShow }) {
           onClick={() => {
             try {
               signInWithGoogle();
+              setRegisterShow(false);
+              swal(
+                "🎉 Welcome onboard!",
+                "Enjoy your time at R²♠rcade",
+                "success"
+              );
+              history.push("/dashboard");
             } catch (error) {
               setError("Error registering with Google");
               setShowError(true);
