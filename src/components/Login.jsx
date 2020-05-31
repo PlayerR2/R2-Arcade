@@ -1,12 +1,17 @@
 import { Modal, Col, Row, Form, Button, Alert } from "react-bootstrap";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { auth, signInWithGoogle } from "../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import swal from "sweetalert";
 
-export default function Login({ loginShow, setLoginShow }) {
+export default function Login({
+  loginShow,
+  setLoginShow,
+  setPasswordResetShow,
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -19,12 +24,15 @@ export default function Login({ loginShow, setLoginShow }) {
     try {
       await auth.signInWithEmailAndPassword(email, password);
       setLoginShow(false);
-      swal("🚀 Welcome back!", "Enjoy your time at Game Center", "success");
+      swal("🚀 Welcome back!", "Enjoy your time at R²♠rcade", "success");
       history.push("/dashboard");
     } catch (error) {
       setError("Error signing in with password and email!");
       setShowError(true);
     }
+
+    setEmail("");
+    setPassword("");
   };
 
   const onChangeHandler = (event) => {
@@ -80,6 +88,16 @@ export default function Login({ loginShow, setLoginShow }) {
               />
             </Col>
           </Form.Group>
+          <Button
+            variant="link"
+            onClick={() => {
+              setPasswordResetShow(true);
+              setLoginShow(false);
+            }}
+            className="text-blue-500 hover:text-blue-600"
+          >
+            Forgot Password?
+          </Button>
         </Form>
       </Modal.Body>
       <Modal.Footer>
@@ -97,6 +115,13 @@ export default function Login({ loginShow, setLoginShow }) {
           onClick={() => {
             try {
               signInWithGoogle();
+              setLoginShow(false);
+              swal(
+                "🚀 Welcome back!",
+                "Enjoy your time at R²♠rcade",
+                "success"
+              );
+              history.push("/dashboard");
             } catch (error) {
               console.error("Error logging in with Google", error);
             }
