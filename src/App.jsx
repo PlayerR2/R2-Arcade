@@ -9,6 +9,9 @@ import Dashboard from "./components/Dashboard";
 import UserProvider from "./components/UserProvider";
 
 export default function App() {
+
+  // TODO fetch URL of each game in the game document
+
   return (
     <Router>
       <UserProvider>

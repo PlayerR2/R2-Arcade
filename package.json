@@ -24,6 +24,8 @@
     "express": "^4.17.1",
     "firebase": "^7.14.3",
     "firebase-tools": "^8.2.0",
+    "fs": "^0.0.1-security",
+    "fstream": "^1.0.12",
     "jquery": "1.9.1 - 3",
     "nord": "^0.2.1",
     "popper.js": "^1.16.0",

@@ -5,33 +5,40 @@ import { storage, firestore } from "../firebase";
 // import swal from "sweetalert";
 
 export default function Upload({ show, setShow, user }) {
+  //const fs = require("fs");
+  //const unzipper = require("unzipper");
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
-  
-  console.log("userProp2========>", user);
-
   const userRef = storage.ref("users/" + user.displayName);
+  const userDb = firestore.collection("users").doc(user.uid);
   const gamesDb = firestore.collection("games").doc();
   
   const inputEl = createRef();
   const onClickHandler = () => {
     inputEl.current.click();
   };
-  
+
   const onChangeHandler = (event) => {
-    console.log(event.target.files[0]);
     const file = event.target.files[0];
     const fileRef = userRef.child(file.name);
     (fileRef).put(file).then(() => {
-      console.log('Uploaded a blob or file!', fileRef.fullPath)
       gamesDb.set({
         creator: user.displayName,
         creatorId: user.uid,
         gameName: fileRef.name,
-        zipLocation: fileRef.fullPath
+        zipLocation: fileRef.fullPath,
+        //fileUri: fileRef.getDownloadURL(),
       });
+      //userDb.set({files: [fileRef.name]})
+      alert('File has been Uploaded ✔')
     });
   };
+
+  // const downloadZip = () => {
+  //   unzipper.Open.file("https://firebasestorage.googleapis.com/v0/b/duo-cc12.appspot.com/o/users%2Fbobby%2F2byteFile.zip?alt=media&token=ee048365-38b2-4ea1-adbc-11b8ef31f868").then(d => d.extract({path: '/extraction/path', concurrency: 1}));
+  // }
+  // downloadZip()
+//https://firebasestorage.googleapis.com/v0/b/duo-cc12.appspot.com/o/users%2Fbobby%2F2byteFile.zip?alt=media&token=ee048365-38b2-4ea1-adbc-11b8ef31f868
 
   return (
     <Modal size="xl" show={show} onHide={() => setShow(false)}>
