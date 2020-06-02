@@ -5,16 +5,11 @@ import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "./UserProvider";
-import { firestore } from "../firebase";
 import Upload from "./Upload";
 
 export default function Dashboard() {
   const [show, setShow] = useState(false);
   const { user } = useContext(UserContext);
-  const gamesDb = firestore.collection("games").doc();
-  const userDb = firestore.collection("users").doc(user.uid);
-  // let uploadedFiles = userDb.where("files","==", true ).get()
-  //   .then(snapshot => snapshot.foreach(file => file))
 
   const onClickHandler = () => {
     setShow(true);
@@ -49,7 +44,9 @@ export default function Dashboard() {
       <div>
         <h3>Files you've uploaded:</h3>
         <ul>
-          <li></li>
+          {user.files.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
         </ul>
       </div>
     </>

@@ -10,9 +10,6 @@ export default function Register({ registerShow, setRegisterShow }) {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
 
@@ -42,9 +39,6 @@ export default function Register({ registerShow, setRegisterShow }) {
     setEmail("");
     setPassword("");
     setDisplayName("");
-    setFirstName("");
-    setLastName("");
-    setPhoneNumber("");
   };
 
   const onChangeHandler = (event) => {
@@ -56,12 +50,6 @@ export default function Register({ registerShow, setRegisterShow }) {
       setPassword(value);
     } else if (name === "displayName") {
       setDisplayName(value);
-    } else if (name === "firstName") {
-      setFirstName(value);
-    } else if (name === "lastName") {
-      setLastName(value);
-    } else if (name === "phoneNumber") {
-      setPhoneNumber(value);
     }
   };
 

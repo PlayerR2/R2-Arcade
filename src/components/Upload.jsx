@@ -29,7 +29,7 @@ export default function Upload({ show, setShow, user }) {
         zipLocation: fileRef.fullPath,
         //fileUri: fileRef.getDownloadURL(),
       });
-      //userDb.set({files: [fileRef.name]})
+      //user.files.update(firestore.FieldValue.arrayUnion(fileRef.name));
       alert('File has been Uploaded ✔')
     });
   };
