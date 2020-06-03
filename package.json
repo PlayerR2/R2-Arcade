@@ -35,7 +35,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-unity-webgl": "^7.1.10",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "unzipper": "^0.10.11"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

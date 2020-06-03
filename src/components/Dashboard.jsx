@@ -11,14 +11,18 @@ import Upload from "./Upload";
 export default function Dashboard() {
   const [show, setShow] = useState(false);
   const { user } = useContext(UserContext);
+<<<<<<< HEAD
+=======
   const gamesDb = firestore.collection("games").doc();
   const userDb = firestore.collection("users").doc(user.uid);
   // let uploadedFiles = userDb.where("files","==", true ).get()
   //   .then(snapshot => snapshot.foreach(file => file))
+>>>>>>> bc524343bba2b5efcf1defd476bf70e4f2912a06
 
   const onClickHandler = () => {
     setShow(true);
   };
+
   return (
     <>
       <div className="header">
@@ -45,6 +49,9 @@ export default function Dashboard() {
           Host my game!
         </Button>
       </div>
+<<<<<<< HEAD
+      <Upload show={show} setShow={setShow} user={user} />
+=======
       <Upload show={show} setShow={setShow} user={user}/>
       <div>
         <h3>Files you've uploaded:</h3>
@@ -52,6 +59,7 @@ export default function Dashboard() {
           <li></li>
         </ul>
       </div>
+>>>>>>> bc524343bba2b5efcf1defd476bf70e4f2912a06
     </>
   );
 }

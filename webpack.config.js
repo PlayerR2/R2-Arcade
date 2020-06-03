@@ -12,6 +12,9 @@ module.exports = {
     publicPath: "/",
     sourceMapFilename: "[name].js.map",
   },
+  node: {
+    fs: "empty",
+  },
   devtool: "eval-source-map",
   module: {
     rules: [
