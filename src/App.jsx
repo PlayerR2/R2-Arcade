@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Game from "./components/Game";
 import "../src/styles/styles.css";
@@ -7,12 +7,23 @@ import Navigation from "./components/Navigation";
 import GameScreen from "./components/GameScreen";
 import Dashboard from "./components/Dashboard";
 import UserProvider from "./components/UserProvider";
+import { Spinner } from "react-bootstrap";
 
 export default function App() {
+  const [isFetching, setIsFetching] = useState(true);
+
   return (
     <Router>
-      <UserProvider>
-        <Navigation />
+      <UserProvider setIsFetching={setIsFetching}>
+        {isFetching ? (
+          <Spinner
+            animation="grow"
+            variant="light"
+            className="loading-spinner"
+          />
+        ) : (
+          <Navigation />
+        )}
         <Route exact path="/" component={Game} />
         <Route path="/game" component={GameScreen} />
         <Route path="/dashboard" component={Dashboard} />

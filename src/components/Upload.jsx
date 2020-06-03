@@ -1,36 +1,32 @@
 import { Modal, Button, Alert } from "react-bootstrap";
 import React, { useState, createRef } from "react";
-import { storage, firestore } from "../firebase";
-
-// import swal from "sweetalert";
+import { storage } from "../firebase";
+import swal from "sweetalert";
 
 export default function Upload({ show, setShow, user }) {
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
-  
-  console.log("userProp2========>", user);
 
-  const userRef = storage.ref("users/" + user.displayName);
-  const gamesDb = firestore.collection("games").doc();
-  
   const inputEl = createRef();
   const onClickHandler = () => {
     inputEl.current.click();
   };
-  
+
   const onChangeHandler = (event) => {
-    console.log(event.target.files[0]);
     const file = event.target.files[0];
-    const fileRef = userRef.child(file.name);
-    (fileRef).put(file).then(() => {
-      console.log('Uploaded a blob or file!', fileRef.fullPath)
-      gamesDb.set({
-        creator: user.displayName,
-        creatorId: user.uid,
-        gameName: fileRef.name,
-        zipLocation: fileRef.fullPath
+    const storageRef = storage.ref("Games");
+    const gamesRef = storageRef.child(file.name);
+
+    gamesRef
+      .put(file)
+      .then(function (snapshot) {
+        swal("🎉 Game Uploaded!", "Your game is now being reviewed", "success");
+        setShow(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setShowError(true);
       });
-    });
   };
 
   return (

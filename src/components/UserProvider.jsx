@@ -10,7 +10,7 @@ export default function UserProvider(props) {
     auth.onAuthStateChanged(async (userAuth) => {
       const user = await generateUserDocument(userAuth);
       setUser({ user });
-      console.log("In the onAuthStateChange", user ? user.uid : "undefined")
+      props.setIsFetching(false);
     });
   };
 

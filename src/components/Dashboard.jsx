@@ -11,13 +11,10 @@ export default function Dashboard() {
   const [show, setShow] = useState(false);
   const { user } = useContext(UserContext);
 
-
-  console.log("userProp1========>", user)
-
-
   const onClickHandler = () => {
     setShow(true);
   };
+
   return (
     <>
       <div className="header">
@@ -44,7 +41,7 @@ export default function Dashboard() {
           Host my game!
         </Button>
       </div>
-      <Upload show={show} setShow={setShow} user={user}/>
+      <Upload show={show} setShow={setShow} user={user} />
     </>
   );
 }
