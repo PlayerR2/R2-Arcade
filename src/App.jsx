@@ -10,7 +10,12 @@ import UserProvider from "./components/UserProvider";
 import { Spinner } from "react-bootstrap";
 
 export default function App() {
+<<<<<<< HEAD
   const [isFetching, setIsFetching] = useState(true);
+=======
+
+  // TODO fetch URL of each game in the game document
+>>>>>>> bc524343bba2b5efcf1defd476bf70e4f2912a06
 
   return (
     <Router>

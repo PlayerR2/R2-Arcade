@@ -4,9 +4,10 @@ import { storage } from "../firebase";
 import swal from "sweetalert";
 
 export default function Upload({ show, setShow, user }) {
+  //const fs = require("fs");
+  //const unzipper = require("unzipper");
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
-
   const inputEl = createRef();
   const onClickHandler = () => {
     inputEl.current.click();
