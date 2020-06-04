@@ -9,7 +9,6 @@ import { UserContext } from "./UserProvider";
 import PasswordReset from "./PasswordReset";
 
 export default function Navigation() {
-  // Modal states
   const { user } = useContext(UserContext);
 
   const [loginShow, setLoginShow] = useState(false);
@@ -41,7 +40,7 @@ export default function Navigation() {
               >
                 Logout
               </Button>
-              <Link to="/dashboard" >
+              <Link to="/dashboard">
                 <Button variant="light">Dashboard</Button>
               </Link>
             </Form>

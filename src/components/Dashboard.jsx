@@ -14,6 +14,7 @@ export default function Dashboard() {
   const onClickHandler = () => {
     setShow(true);
   };
+
   return (
     <>
       <div className="header">

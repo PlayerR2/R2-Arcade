@@ -1,18 +1,13 @@
 import { Modal, Button, Alert } from "react-bootstrap";
 import React, { useState, createRef } from "react";
-import { storage, firestore } from "../firebase";
-
-// import swal from "sweetalert";
+import { storage } from "../firebase";
+import swal from "sweetalert";
 
 export default function Upload({ show, setShow, user }) {
   //const fs = require("fs");
   //const unzipper = require("unzipper");
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
-  const userRef = storage.ref("users/" + user.displayName);
-  const userDb = firestore.collection("users").doc(user.uid);
-  const gamesDb = firestore.collection("games").doc();
-  
   const inputEl = createRef();
   const onClickHandler = () => {
     inputEl.current.click();
@@ -20,25 +15,23 @@ export default function Upload({ show, setShow, user }) {
 
   const onChangeHandler = (event) => {
     const file = event.target.files[0];
-    const fileRef = userRef.child(file.name);
-    (fileRef).put(file).then(() => {
-      gamesDb.set({
-        creator: user.displayName,
-        creatorId: user.uid,
-        gameName: fileRef.name,
-        zipLocation: fileRef.fullPath,
-        //fileUri: fileRef.getDownloadURL(),
+    const storageRef = storage.ref("Games");
+    const gamesRef = storageRef.child(file.name);
+
+    gamesRef
+      .put(file)
+      .then(function (snapshot) {
+        swal("🎉 Game Uploaded!", "Your game is now being reviewed", "success");
+        setShow(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setShowError(true);
       });
       //user.files.update(firestore.FieldValue.arrayUnion(fileRef.name));
       alert('File has been Uploaded ✔')
     });
   };
-
-  // const downloadZip = () => {
-  //   unzipper.Open.file("https://firebasestorage.googleapis.com/v0/b/duo-cc12.appspot.com/o/users%2Fbobby%2F2byteFile.zip?alt=media&token=ee048365-38b2-4ea1-adbc-11b8ef31f868").then(d => d.extract({path: '/extraction/path', concurrency: 1}));
-  // }
-  // downloadZip()
-//https://firebasestorage.googleapis.com/v0/b/duo-cc12.appspot.com/o/users%2Fbobby%2F2byteFile.zip?alt=media&token=ee048365-38b2-4ea1-adbc-11b8ef31f868
 
   return (
     <Modal size="xl" show={show} onHide={() => setShow(false)}>

@@ -39,6 +39,11 @@ body {
   margin-left: 10px;
 }
 
+.loading-spinner {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
 /* Navbar */
 .navbar {
   background-color: transparent;
