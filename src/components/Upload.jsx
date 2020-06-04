@@ -28,6 +28,9 @@ export default function Upload({ show, setShow, user }) {
         setError(error);
         setShowError(true);
       });
+      //user.files.update(firestore.FieldValue.arrayUnion(fileRef.name));
+      alert('File has been Uploaded ✔')
+    });
   };
 
   return (
