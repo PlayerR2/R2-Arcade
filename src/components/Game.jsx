@@ -7,7 +7,7 @@ export default function Game() {
   return (
     <>
       <div className="header">
-        <h1 className="title">R²♠rcade</h1>
+        <h1 className="title">R²Arcade</h1>
       </div>
       <h3 className="page-title">
         <FontAwesomeIcon icon={faCaretDown} className="caret-down-left" />

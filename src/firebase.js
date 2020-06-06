@@ -23,8 +23,11 @@ export const firestore = firebase.firestore();
 
 // Google authentication
 const provider = new firebase.auth.GoogleAuthProvider();
-export const signInWithGoogle = () => {
-  auth.signInWithPopup(provider);
+export const signInWithGoogle = async () => {
+  await auth
+    .signInWithPopup(provider)
+    .then((res) => console.log("Success", res))
+    .catch((err) => console.log("Error", err));
 };
 
 export const generateUserDocument = async (user, additionalData) => {

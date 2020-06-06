@@ -28,7 +28,7 @@ export default function Register({ registerShow, setRegisterShow }) {
       );
       generateUserDocument(user, { displayName });
       setRegisterShow(false);
-      swal("🎉 Welcome onboard!", "Enjoy your time at R²♠rcade", "success");
+      swal("🎉 Welcome onboard!", "Enjoy your time at R²Arcade", "success");
       history.push("/dashboard");
     } catch (error) {
       setError("Error Signing up with email and password!");
@@ -130,7 +130,7 @@ export default function Register({ registerShow, setRegisterShow }) {
               setRegisterShow(false);
               swal(
                 "🎉 Welcome onboard!",
-                "Enjoy your time at R²♠rcade",
+                "Enjoy your time at R²Arcade",
                 "success"
               );
               history.push("/dashboard");
