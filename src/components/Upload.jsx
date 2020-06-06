@@ -28,8 +28,8 @@ export default function Upload({ show, setShow, user }) {
         setError(error);
         setShowError(true);
       });
-      //user.files.update(firestore.FieldValue.arrayUnion(fileRef.name));
-      alert('File has been Uploaded ✔');
+    //user.files.update(firestore.FieldValue.arrayUnion(fileRef.name));
+    alert("File has been Uploaded ✔");
   };
 
   return (
@@ -46,7 +46,7 @@ export default function Upload({ show, setShow, user }) {
         >
           <p>{error}</p>
         </Alert>
-        <h4>Thank you for choosing R²♠rcade!</h4>
+        <h4>Thank you for choosing R²Arcade!</h4>
         <i>👍 Please follow this guide to upload your game.</i>
         <p></p>
         <h4>Game Requirements</h4>

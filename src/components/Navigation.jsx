@@ -50,7 +50,7 @@ export default function Navigation() {
         <>
           <Navbar.Brand>
             <Link to="/" className="navbar-brand">
-              R²♠rcade
+              R²Arcade
             </Link>
           </Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">

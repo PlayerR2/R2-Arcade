@@ -22,7 +22,7 @@ export default function Dashboard() {
       </div>
       <div className="gamescreen-header">
         <div className="return">
-          <Link to="/">
+          <Link to="/" className="to-arcade">
             <FontAwesomeIcon className="return-btn" icon={faArrowCircleLeft} />
             To Arcade
           </Link>
@@ -41,14 +41,14 @@ export default function Dashboard() {
           Host my game!
         </Button>
       </div>
-      <Upload show={show} setShow={setShow} user={user}/>
-      <div>
+      <Upload show={show} setShow={setShow} user={user} />
+      <div className="dashboard-file-list">
         <h3>Files you've uploaded:</h3>
-        <ul>
+        {/* <ul>
           {user.files.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
-        </ul>
+        </ul> */}
       </div>
     </>
   );

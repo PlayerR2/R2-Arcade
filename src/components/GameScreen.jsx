@@ -16,7 +16,7 @@ export default function GameScreen(props) {
       </div>
       <div className="gamescreen-header">
         <div className="return">
-          <Link to="/">
+          <Link to="/" className="return-link">
             <FontAwesomeIcon className="return-btn" icon={faArrowCircleLeft} />
             return
           </Link>
