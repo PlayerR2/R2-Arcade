@@ -12,11 +12,26 @@ import Upload from "./Upload";
 export default function Dashboard() {
   const [show, setShow] = useState(false);
   const { user } = useContext(UserContext);
-  const gamesRef = firestore.collection("Games");
+  //const userFileDb = firestore.collection("users").doc().collection("files").doc();
+  const gamesDb = firestore.collection("games");
+  let query = gamesDb.where('creatorId', '==', user.uid).get()
+  .then(snapshot => {
+    if (snapshot.empty) {
+      console.log('No matching documents.');
+      return;
+    }  
 
-  const showFiles = () => {
-    let query = gamesRef.where("creatorId, "==", user.)
-  }
+    snapshot.forEach(doc => {
+      console.log(doc.id, '=>', doc.data());
+    });
+  })
+  .catch(err => {
+    console.log('Error getting documents', err);
+  });
+
+  // const showFiles = () => {
+  //   let query = gamesRef.where("creatorId, "==", user.)
+  // }
 
   const onClickHandler = () => {
     setShow(true);

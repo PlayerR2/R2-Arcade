@@ -1,13 +1,15 @@
 import { Modal, Button, Alert } from "react-bootstrap";
 import React, { useState, createRef } from "react";
-import { storage } from "../firebase";
+import { storage, firestore } from "../firebase";
 import swal from "sweetalert";
 
 export default function Upload({ show, setShow, user }) {
-  //const fs = require("fs");
-  //const unzipper = require("unzipper");
   const [error, setError] = useState(null);
   const [showError, setShowError] = useState(false);
+  const gamesDb = firestore.collection("games").doc();
+  const userFileDb = firestore.collection("users").doc(user.uid);
+
+
   const inputEl = createRef();
   const onClickHandler = () => {
     inputEl.current.click();
@@ -15,27 +17,33 @@ export default function Upload({ show, setShow, user }) {
 
   const onChangeHandler = (event) => {
     const file = event.target.files[0];
-    const storageRef = storage.ref("Games");
-    const gamesRef = storageRef.child(file.name);
+    const gamesRef = storage.ref("Games").child(file.name);
 
     gamesRef
       .put(file)
-      .then(function (snapshot) {
+      .then(() => {
         gamesDb.set({
           creator: user.displayName,
           creatorId: user.uid,
-          gameName: fileRef.name,
-          zipLocation: fileRef.fullPath,
+          gameName: gamesRef.name,
+          zipLocation: gamesRef.fullPath,
         });
         swal("🎉 Game Uploaded!", "Your game is now being reviewed", "success");
         setShow(false);
+      })
+      .then(() => {
+        let query = firestore.collection("games")
+        .where("gameName","==",file.name).get()
+        .then(snapshot => {
+          snapshot.forEach(doc => {
+            userFileDb.update({ [`files.${doc.id}`]: gamesRef.name})
+          });
+        })
       })
       .catch((error) => {
         setError(error);
         setShowError(true);
       });
-    //user.files.update(firestore.FieldValue.arrayUnion(fileRef.name));
-    alert("File has been Uploaded ✔");
   };
 
   return (
