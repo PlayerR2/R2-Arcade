@@ -5,11 +5,18 @@ import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "./UserProvider";
+import { firestore } from "../firebase";
+
 import Upload from "./Upload";
 
 export default function Dashboard() {
   const [show, setShow] = useState(false);
   const { user } = useContext(UserContext);
+  const gamesRef = firestore.collection("Games");
+
+  const showFiles = () => {
+    let query = gamesRef.where("creatorId, "==", user.)
+  }
 
   const onClickHandler = () => {
     setShow(true);

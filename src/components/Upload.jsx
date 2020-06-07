@@ -21,6 +21,12 @@ export default function Upload({ show, setShow, user }) {
     gamesRef
       .put(file)
       .then(function (snapshot) {
+        gamesDb.set({
+          creator: user.displayName,
+          creatorId: user.uid,
+          gameName: fileRef.name,
+          zipLocation: fileRef.fullPath,
+        });
         swal("🎉 Game Uploaded!", "Your game is now being reviewed", "success");
         setShow(false);
       })
