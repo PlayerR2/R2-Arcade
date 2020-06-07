@@ -12,26 +12,20 @@ import Upload from "./Upload";
 export default function Dashboard() {
   const [show, setShow] = useState(false);
   const { user } = useContext(UserContext);
-  //const userFileDb = firestore.collection("users").doc().collection("files").doc();
   const gamesDb = firestore.collection("games");
-  let query = gamesDb.where('creatorId', '==', user.uid).get()
-  .then(snapshot => {
-    if (snapshot.empty) {
-      console.log('No matching documents.');
-      return;
-    }  
+  const userDB = firestore.collection("users").doc(user.uid);
+  
+  // //console.log("userDashboard ---", Object.values(user.files));
+    
+  // let observer = gamesDb.where('creatorId', '==', user.uid)
+  //   .onSnapshot(querySnapshot => {
+  //     return querySnapshot.docChanges().forEach(change => {
+  //       console.log("changes--->", change.doc.data());
+  //       return change.doc.data().gameName;
+  //     });
+  //   });
 
-    snapshot.forEach(doc => {
-      console.log(doc.id, '=>', doc.data());
-    });
-  })
-  .catch(err => {
-    console.log('Error getting documents', err);
-  });
-
-  // const showFiles = () => {
-  //   let query = gamesRef.where("creatorId, "==", user.)
-  // }
+  // console.log("outsideFIlesList:", observer);
 
   const onClickHandler = () => {
     setShow(true);
@@ -66,11 +60,11 @@ export default function Dashboard() {
       <Upload show={show} setShow={setShow} user={user} />
       <div className="dashboard-file-list">
         <h3>Files you've uploaded:</h3>
-        {/* <ul>
-          {user.files.map((item, index) => (
+        <ul>
+          {Object.values(user.files).map((item, index) => (
             <li key={index}>{item}</li>
           ))}
-        </ul> */}
+        </ul>
       </div>
     </>
   );
