@@ -7,9 +7,11 @@ export default function UserProvider(props) {
   const [user, setUser] = useState({ user: null });
 
   const onAuthStateChange = async () => {
+    props.setIsFetching(true);
     auth.onAuthStateChanged(async (userAuth) => {
       const user = await generateUserDocument(userAuth);
       setUser({ user });
+      console.log(user);
       props.setIsFetching(false);
     });
   };

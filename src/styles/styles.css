@@ -162,11 +162,22 @@ img {
   margin-top: 50px;
 }
 
+.dashboard-file-list {
+  height: 300px;
+}
+
+.to-arcade {
+  color: #eceff4;
+}
+
+a.to-arcade:hover {
+  color: #d8dee9;
+  text-decoration: none;
+}
+
 /* Footer */
 .footer {
-  position: absolute;
-  left: 0;
-  bottom: 20px;
+  position: relative;
   width: 100%;
   text-align: center;
   font-size: 16px;
@@ -194,6 +205,15 @@ img {
 
 .return-btn {
   margin-right: 5px;
+}
+
+.return-link {
+  color: #eceff4;
+}
+
+a.return-link:hover {
+  color: #d8dee9;
+  text-decoration: none;
 }
 
 .gamescreen-title {

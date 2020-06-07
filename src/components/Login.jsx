@@ -24,7 +24,7 @@ export default function Login({
     try {
       await auth.signInWithEmailAndPassword(email, password);
       setLoginShow(false);
-      swal("🚀 Welcome back!", "Enjoy your time at R²♠rcade", "success");
+      swal("🚀 Welcome back!", "Enjoy your time at R²Arcade", "success");
       history.push("/dashboard");
     } catch (error) {
       setError("Error signing in with password and email!");
@@ -33,6 +33,17 @@ export default function Login({
 
     setEmail("");
     setPassword("");
+  };
+
+  const handleSignInWithGoogle = async () => {
+    try {
+      await signInWithGoogle();
+      setLoginShow(false);
+      swal("🚀 Welcome back!", "Enjoy your time at R²Arcade", "success");
+      history.push("/dashboard");
+    } catch (error) {
+      console.error("Error logging in with Google", error);
+    }
   };
 
   const onChangeHandler = (event) => {
@@ -113,18 +124,7 @@ export default function Login({
         <Button
           variant="danger"
           onClick={() => {
-            try {
-              signInWithGoogle();
-              setLoginShow(false);
-              swal(
-                "🚀 Welcome back!",
-                "Enjoy your time at R²♠rcade",
-                "success"
-              );
-              history.push("/dashboard");
-            } catch (error) {
-              console.error("Error logging in with Google", error);
-            }
+            handleSignInWithGoogle();
           }}
           block
         >
