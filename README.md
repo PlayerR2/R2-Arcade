@@ -27,4 +27,9 @@ touch .env
 yarn server
 ````
 
-Made with 💗 by PlayerR²
+## ✏️ **Authors**
+- [Riku Kawano](https://github.com/rikukawano)
+- [Roger Voss](https://github.com/rogerrogerv)
+
+
+###### Made with ♥️ by PlayerR²
