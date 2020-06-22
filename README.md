@@ -1,14 +1,15 @@
-# 👾 **Game Center**
+# 👾 **R² Arcade**
 ###### This was created during our time as students at Code Chrysalis
 
-👋 Welcome to Game Center, a place to play out Unity WebGL games developed by the community! 
+👋 Welcome to **R² Arcade**, a fun-packed platform to play *Unity WebGL games* developed by indie developers! 
+
 For those of you game developers out there, you can upload your Unity WebGL game super easily and have your game played by everyone on planet Earth 🎉
 
 
-Rush in on the fun [HERE](https://duo-cc12.web.app/) 👈 Enjoy!
+**Rush in on the fun** [HERE](https://duo-cc12.web.app/) 👈 ***Enjoy!***
 
 
-##### 🙏 We would really appreciate it if you could leave us your feedback!
+##### 🙏 This is an ongoing pet project! So we would really appreciate it if you could leave us your feedback!
 
 
 ## 🚀 **Project Setup**
