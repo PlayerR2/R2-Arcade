@@ -6,7 +6,7 @@
 For those of you game developers out there, you can upload your Unity WebGL game super easily and have your game played by everyone on planet Earth 🎉
 
 
-**Rush in on the fun** [HERE](https://duo-cc12.web.app/) 👈 ***Enjoy!***
+**Rush in on the fun** [HERE](https://r2arcade.com/) 👈 ***Enjoy!***
 
 
 ##### 🙏 This is an ongoing pet project! So we would really appreciate it if you could leave us your feedback!
